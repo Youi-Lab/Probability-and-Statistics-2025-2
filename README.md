@@ -1,6 +1,6 @@
-### Probability-and-Statistics-2025-2
+## Probability-and-Statistics-2025-2
 
-## lecture_notes_1.pdf
+### lecture_notes_1.pdf
 - Probability theory and random phenomena.
 - Probability measure key features.
 - Probability theory and random phenomena.
