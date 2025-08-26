@@ -18,5 +18,10 @@
 - Independence. 
 - Conditional probability.
 - Chain rule.
-- Bayes theorem. 
+- Bayes theorem.
+  ### lecture_notes_4.pdf
+-  Random variables.
+-  Probability distributions.
+-  Cummulative distribution function.
+-  Probability density functions.
 
