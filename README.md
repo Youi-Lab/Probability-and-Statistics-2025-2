@@ -19,7 +19,7 @@
 - Conditional probability.
 - Chain rule.
 - Bayes theorem.
-  ### lecture_notes_4.pdf
+### lecture_notes_4.pdf
 -  Random variables.
 -  Probability distributions.
 -  Cummulative distribution function.
