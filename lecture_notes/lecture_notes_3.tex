@@ -134,7 +134,7 @@ thick,minimum size=1mm,line width=1pt,>=stealth]  % continuous  node
 %\rhead{\includegraphics[width=1cm]{fig/T1.png}}
 \def\ci{\perp\!\!\!\perp}
 
-\title{Probability Theory and Machine Learning }
+\title{Probability Theory }
 \author{Salvador Ruiz Correa}
 \date{August 18, 2025}  % if the \date{} command is left out, the current date will be used
 \begin{document}
@@ -375,7 +375,7 @@ In the diagram below we can see how the set $B$, which is an element of $\mathca
 \end{figure}
 
 \begin{mydef}{Random Variable}{theoexample} 
-Let $(\Omega, \mathscr F, P)$ be a probability space.  A  \textit{random variable} $X$  is a   ($\mathcal F/\mathcal B(\mathbb R^n)$) measurable map  $X:\Omega \rightarrow \mathbb R^n$, if for every Borel set  $B \in \mathcal B(\mathbb R^n)$:
+Let $(\Omega, \mathscr F, \mu)$ be a probability space.  A  \textit{random variable} $X$  is a   ($\mathcal F/\mathcal B(\mathbb R^n)$) measurable map  $X:\Omega \rightarrow \mathbb R^n$, if for every Borel set  $B \in \mathcal B(\mathbb R^n)$:
 \begin{align*}
 X^{-1}(B) =\{ \omega \in \Omega: X(\omega) \in B \} \in \mathscr F.
 \end{align*}
@@ -485,13 +485,13 @@ $P\circ X^{-1}: \mathcal B(\mathbb R^n)  \rightarrow [0,1]$.
 }
 \end{marginfigure}
 
+
 \begin{mydef}{Probability Distribution}{theoexample}
-Let $(\Omega, P, \mathscr F)$ be a measure space, and  $X$  a random variable $X:\Omega \rightarrow \mathbb R^n $, i.e. a   measurable map. Then
+Let $(\Omega, \mathscr F, \mu)$ be a measure space, and  $X$  a random variable $X:\Omega \rightarrow \mathbb R $, i.e. a   measurable map. Then
 \begin{equation*}
-P(X^{-1}(B)) = P(\{\omega: X(\omega) \in B\}) = P(X \in B).
+ P(X \in B) =  \mu(X^{-1}(B)) = \mu(\{\omega: X(\omega) \in B\}) 
 \end{equation*}
-is a probability measure called the \textit{law} or \textit{distribution} of the random variable $X$. Note: Here we use $(E, \mathcal E) = (\mathbb R^n,\mathcal B(\mathbb R^n))$, that is, 
-$P\circ X^{-1}: \mathcal B(\mathbb R^n)  \rightarrow [0,1]$.
+is a probability measure called the \textit{law} or \textit{distribution} of the random variable $X$. Recall that  $P = \mu\circ X^{-1}: \mathcal B(\mathbb R)  \rightarrow [0,1]$.
 
 \end{mydef}
 
