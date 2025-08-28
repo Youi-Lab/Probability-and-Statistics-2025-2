@@ -134,7 +134,7 @@ thick,minimum size=1mm,line width=1pt,>=stealth]  % continuous  node
 %\rhead{\includegraphics[width=1cm]{fig/T1.png}}
 \def\ci{\perp\!\!\!\perp}
 
-\title{Probability Theory and Machine Learning }
+\title{Probability Theory  }
 \author{Salvador Ruiz Correa}
 \date{August 18, 2025}  % if the \date{} command is left out, the current date will be used
 \begin{document}
@@ -364,6 +364,89 @@ Let $X = (X_1, X_2, \dots, X_k)$ be a random vector representing counts of outco
 \end{itemize}
 \end{mybox}
 
+\section*{Derivation: Poisson as Limit of Binomial}
+
+Start with the Binomial probability mass function:
+
+
+\[
+P(X = k) = \binom{n}{k} p^k (1 - p)^{n - k}
+\]
+
+
+
+Let \( \lambda = np \), and consider the limit as \( n \to \infty \), \( p \to 0 \), with \( \lambda \) fixed.
+
+Rewrite the PMF in terms of \( \lambda \):
+
+
+\[
+P(X = k) = \binom{n}{k} \left( \frac{\lambda}{n} \right)^k \left( 1 - \frac{\lambda}{n} \right)^{n - k}
+\]
+
+
+
+Approximate the binomial coefficient for fixed \( k \) and large \( n \):
+
+
+\[
+\binom{n}{k} \approx \frac{n^k}{k!}
+\]
+
+
+
+Now substitute and simplify:
+
+
+\[
+P(X = k) \approx \frac{n^k}{k!} \cdot \left( \frac{\lambda}{n} \right)^k \cdot \left( 1 - \frac{\lambda}{n} \right)^n \cdot \left( 1 - \frac{\lambda}{n} \right)^{-k}
+\]
+
+
+
+Note the limits:
+
+
+\[
+\left( \frac{\lambda}{n} \right)^k = \frac{\lambda^k}{n^k}, \quad \left( 1 - \frac{\lambda}{n} \right)^n \to e^{-\lambda}, \quad \left( 1 - \frac{\lambda}{n} \right)^{-k} \to 1
+\]
+
+
+
+Putting it all together:
+
+
+\[
+P(X = k) \approx \frac{n^k}{k!} \cdot \frac{\lambda^k}{n^k} \cdot e^{-\lambda} = \frac{\lambda^k}{k!} e^{-\lambda}
+\]
+
+
+\begin{align*}
+P(X = k) &= \binom{n}{k} \left( \frac{\lambda}{n} \right)^k \left( 1 - \frac{\lambda}{n} \right)^{n - k}\\
+	     &= \frac{n (n-1)(n-2)\dots(n-k+1) (n-k)!}{k!(n-k)!}\left( \frac{\lambda}{n} \right)^k \left( 1 - \frac{\lambda}{n} \right)^{n - k}\\
+	     &= \frac{\lambda^k}{k!}  \left( \frac{n (n-1)(n-2)\dots(n-k+1)}{n^k} \right)\left( 1 - \frac{\lambda}{n} \right)^{-k}\left( 1 - \frac{\lambda}{n} \right)^{n}\\
+	     &= \frac{\lambda^k}{k!}  \left( \frac{n (n-1)(n-2)\dots(n-k+1)}{n \cdot n \cdot n \cdots  n } \right)\left( 1 - \frac{\lambda}{n} \right)^{-k}\left( 1 - \frac{\lambda}{n} \right)^{n}
+\end{align*}
+
+\begin{align*}
+\small
+\lim_{n\rightarrow \infty}P(X = k) &=  \lim_{n\rightarrow \infty}\binom{n}{k} \left( \frac{\lambda}{n} \right)^k \left( 1 - \frac{\lambda}{n} \right)^{n - k}\\
+	     &= \lim_{n\rightarrow \infty} \frac{n (n-1)(n-2)\dots(n-k+1) (n-k)!}{k!(n-k)!}\left( \frac{\lambda}{n} \right)^k \left( 1 - \frac{\lambda}{n} \right)^{n - k}\\
+	     &=\lim_{n\rightarrow \infty}  \frac{\lambda^k}{k!}  \left( \frac{n (n-1)(n-2)\dots(n-k+1)}{n^k} \right)\left( 1 - \frac{\lambda}{n} \right)^{-k}\left( 1 - \frac{\lambda}{n} \right)^{n}\\
+	     &= \frac{\lambda^k}{k!}  \lim_{n\rightarrow \infty}  \left( \frac{n (n-1)(n-2)\dots(n-k+1)}{n \cdot n \cdot n \cdots  n } \right) \lim_{n\rightarrow \infty} \left( 1 - \frac{\lambda}{n} \right)^{-k} 
+	     \lim_{n\rightarrow \infty} \left( 1 -\frac{\lambda}{n} \right)^{n}\\
+	     &= \frac{\lambda^k}{k!}  \lim_{n\rightarrow \infty} \left( 1 -\frac{\lambda}{n} \right)^{n}\\	
+	     &= \frac{\lambda^k}{k!}  \lim_{n\rightarrow \infty} \left( 1 + \frac{1}{a} \right)^{-a\lambda }\\
+	     &= \frac{\lambda^k}{k!} e^{-\lambda}\\	     	     
+\end{align*}
+with $a=-\lambda/n$. 
+
+Thus, the Binomial distribution converges to the Poisson distribution:
+
+
+\[
+\boxed{P(X = k) = \frac{\lambda^k}{k!} e^{-\lambda}}
+\]
 \subsection{Drawing Samples from  Random Variable}
 
 Drawing samples from a random variable refers to the process of generating individual realizations or instances of that random variable according to its probability distribution. In probability theory and statistics, a random variable is a variable whose possible values are outcomes of a random phenomenon. The probability distribution of a random variable describes the likelihood of different values it can take.
