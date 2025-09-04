@@ -24,4 +24,11 @@
 -  Probability distributions.
 -  Cummulative distribution function.
 -  Probability density functions.
+### lecture_notes_5.pd
+- Random vectors.
+- Joint probability distribution.
+-  Marginal distribution. 
+- Mean vector and covariance matrix.
+- Examples.
+- Stochastic project definition.
 
