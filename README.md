@@ -30,5 +30,5 @@
 -  Marginal distribution. 
 - Mean vector and covariance matrix.
 - Examples.
-- Stochastic project definition.
+- Stochastic process definition.
 
